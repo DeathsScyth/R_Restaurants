@@ -6,7 +6,7 @@ from .models import *
 
 
 def homePage(request):
-    return render(request, 'RestaurantApp/RestaurantApplication/templates/dist/index.html')
+    return render(request, 'R_Restaurants-master/RestaurantApp/RestaurantApplication/templates/dist/index.html')
 
 
 # les fonctions CRUD pour toutes les classes
@@ -197,6 +197,6 @@ def update_note_restaurant(note_restaurant_id, id_utilisateur=None, id_restauran
     return note_restaurant
 
 
-def delete_note_rcestaurant(note_restaurant_id):
+def delete_note_restaurant(note_restaurant_id):
     note_restaurant = get_object_or_404(NoteRestaurant, pk=note_restaurant_id)
     note_restaurant.delete()
