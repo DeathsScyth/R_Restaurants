@@ -4,7 +4,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
 from .models import *
 
-#les fonctions CRUD pour toutes les classes
+
+def homePage(request):
+    return render(request, 'RestaurantApp/RestaurantApplication/templates/dist/index.html')
+
+
+# les fonctions CRUD pour toutes les classes
 def get_utilisateur_list(request):
     user_list = Utilisateur.objects.all()
     return render(request, '', {'user_list': user_list})
@@ -76,6 +81,7 @@ def ChercherParVille(request):
         restaurant = Restaurant.objects.filter(name__icontains=chercher)
         return render(request, '', {'Restaurant': restaurant, 'search': chercher})
     return render(request, '')
+
 
 # fonction de reccherche par type de cuisine
 def ChercherParCuisine(request):
